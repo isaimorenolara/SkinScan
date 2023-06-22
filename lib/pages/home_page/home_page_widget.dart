@@ -127,7 +127,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               'assets/images/SkinScan.png',
                               width: MediaQuery.of(context).size.width * 0.5,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.none,
                             ),
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation']!),
