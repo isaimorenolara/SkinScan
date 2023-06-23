@@ -50,6 +50,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Registrate',
           path: '/registrate',
           builder: (context, params) => RegistrateWidget(),
+        ),
+        FFRoute(
+          name: 'IniciarSesion',
+          path: '/iniciarSesion',
+          builder: (context, params) => IniciarSesionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
