@@ -55,6 +55,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'IniciarSesion',
           path: '/iniciarSesion',
           builder: (context, params) => IniciarSesionWidget(),
+        ),
+        FFRoute(
+          name: 'Perfil',
+          path: '/perfil',
+          builder: (context, params) => PerfilWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
