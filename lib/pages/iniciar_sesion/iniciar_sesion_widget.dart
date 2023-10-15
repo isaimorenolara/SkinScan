@@ -39,7 +39,9 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -89,13 +91,13 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 40.0, 0.0, 40.0, 0.0),
                             child: Container(
-                              width: MediaQuery.of(context).size.width * 1.0,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 62.0,
                               decoration: BoxDecoration(
                                 color: Color(0x00FFFFFF),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.00, 0.00),
                                 child: Text(
                                   'Inicia Sesión',
                                   style: FlutterFlowTheme.of(context)
@@ -126,7 +128,7 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: TextFormField(
                                   controller: _model.correoFieldController,
@@ -185,7 +187,7 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: TextFormField(
                                   controller: _model.contrasena1FieldController,
@@ -260,7 +262,7 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -342,7 +344,7 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,

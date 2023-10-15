@@ -66,18 +66,20 @@ class _HomePageWidgetState extends State<HomePageWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
           child: Container(
-            width: MediaQuery.of(context).size.width * 1.0,
-            height: MediaQuery.of(context).size.height * 1.0,
+            width: MediaQuery.sizeOf(context).width * 1.0,
+            height: MediaQuery.sizeOf(context).height * 1.0,
             constraints: BoxConstraints(
-              maxWidth: MediaQuery.of(context).size.width * 1.0,
-              maxHeight: MediaQuery.of(context).size.height * 1.0,
+              maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+              maxHeight: MediaQuery.sizeOf(context).height * 1.0,
             ),
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -98,7 +100,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 1.0,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       height: 350.0,
                       decoration: BoxDecoration(
                         boxShadow: [
@@ -125,21 +127,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/SkinScan.png',
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              height: MediaQuery.of(context).size.height * 0.1,
+                              width: MediaQuery.sizeOf(context).width * 0.5,
+                              height: MediaQuery.sizeOf(context).height * 0.1,
                               fit: BoxFit.none,
                             ),
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation']!),
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.55,
-                            height: MediaQuery.of(context).size.height * 0.05,
+                            width: MediaQuery.sizeOf(context).width * 0.55,
+                            height: MediaQuery.sizeOf(context).height * 0.05,
                             decoration: BoxDecoration(
                               color: Color(0x00FFFFFF),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.00, 0.00),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: Text(
                                 'Identifica cáncer de piel con una fotografía.',
                                 textAlign: TextAlign.center,

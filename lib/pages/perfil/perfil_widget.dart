@@ -36,7 +36,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -86,13 +88,13 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 40.0, 0.0, 40.0, 0.0),
                             child: Container(
-                              width: MediaQuery.of(context).size.width * 1.0,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 62.0,
                               decoration: BoxDecoration(
                                 color: Color(0x00FFFFFF),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.00, 0.00),
                                 child: Text(
                                   'Perfil',
                                   style: FlutterFlowTheme.of(context)
@@ -123,7 +125,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Container(
                                   width: 120.0,
@@ -140,16 +142,15 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     40.0, 0.0, 40.0, 25.0),
                                 child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Text(
                                       '[Nombre]',
                                       textAlign: TextAlign.center,
@@ -168,7 +169,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -213,7 +214,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   40.0, 0.0, 40.0, 25.0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
